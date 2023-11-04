@@ -27,23 +27,27 @@ class SearchCity extends Component {
                 cityLon: data[0].lon,
                 cityLat: data[0].lat,
             })
-            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${this.state.cityLat}&lon=${this.state.cityLon}&appid=4f38068d7e7c5d27e830b68d19fbb064`)
-            .then((res) => {
-                if(res.ok){
-                    return res.json()
-                } else {
-                    throw new Error ('Errore nel recupero delle previsioni')
-                }
-            })
-            .then((city) => {
-                console.log(city)
-                this.setState({
-                    cityName: city
-                })
-            })
-            .catch((err) => {console.log('errore', err)})
+            this.getCity()
         })
         .catch((err) => {console.log('errore', err)})    
+    }
+
+    getCity = () => {
+        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${this.state.cityLat}&lon=${this.state.cityLon}&appid=4f38068d7e7c5d27e830b68d19fbb064`)
+        .then((res) => {
+            if(res.ok){
+                return res.json()
+            } else {
+                throw new Error ('Errore nel recupero delle previsioni')
+            }
+        })
+        .then((city) => {
+            console.log(city)
+            this.setState({
+                cityName: city
+            })
+        })
+        .catch((err) => {console.log('errore', err)})
     }
 
     componentDidMount(){

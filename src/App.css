@@ -63,12 +63,17 @@ body, html {
   height: 100%;
   background: linear-gradient(0deg, rgba(23,189,247,1) 0%, rgba(255,255,255,0.47102591036414565) 100%);
   font-family: 'Playpen Sans', cursive;
+  font-size: 1em;
 }
 
-.radiant-bg{
+/* .radiant-bg{
   background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
-}
+} */
 
 .fw-700{
   font-weight: 700;
+}
+
+.brd-rds{
+  border-radius: 2em;
 }
